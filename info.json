@@ -1,0 +1,20 @@
+{
+    "1001": {
+        "name": "John Doe",
+        "department": "HR",
+        "position": "Manager",
+        "salary": "50000"
+    },
+    "1002": {
+        "name": "Jane Smith",
+        "department": "Finance",
+        "position": "Analyst",
+        "salary": "45000"
+    },
+    "2023": {
+        "name": "Nikita",
+        "department": "dev",
+        "position": "huy",
+        "salary": "500000"
+    }
+}
