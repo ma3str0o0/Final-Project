@@ -16,5 +16,11 @@
         "department": "dev",
         "position": "huy",
         "salary": "500000"
+    },
+    "1234": {
+        "name": "huy",
+        "department": "dev",
+        "position": "huy",
+        "salary": "huy"
     }
 }

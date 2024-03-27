@@ -73,15 +73,17 @@ def search_employee():
 
     found = False
     for emp_id, emp_details in employee_records.items():
-        if search_value in emp_details[search_key]:
-            print(f"Employee ID: {emp_id}")
+        if search_value in emp_details[search_key].lower():
+            print(f"\nEmployee ID: {emp_id}")
             print(f"Name: {emp_details['name']}")
             print(f"Department: {emp_details['department']}")
             print(f"Position: {emp_details['position']}")
             print(f"Salary: {emp_details['salary']}")
             found = True
+
     if not found:
         print('No matching employee found.')
+
 
 
 def list_employees():
@@ -105,9 +107,10 @@ def main():
             print('3. Delete Employee')
             print('4. Search Employee')
             print('5. List Employees')
-            print('6. Exit')
+            print('6. Save Data')
+            print('7. Exit')
 
-            choice = input('Enter your choice: "')
+            choice = input('Enter your choice: ')
 
             if choice == '1':
                 add_employee()
@@ -120,9 +123,11 @@ def main():
             elif choice == '5':
                 list_employees()
             elif choice == '6':
+                save_data()
+            elif choice == '7':
                 break
             else:
-                print('Invalid choice, please enter a number between 1 and 6.')
+                print('Invalid choice, please enter a number between 1 and 7.')
     except KeyboardInterrupt:
         save_data()
         print('\nData saved.')
