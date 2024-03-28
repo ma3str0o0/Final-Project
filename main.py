@@ -85,7 +85,6 @@ def search_employee():
         print('No matching employee found.')
 
 
-
 def list_employees():
     sorted_records = sorted(employee_records.items(), key=lambda x: x[1]['name'].split()[-1])
     for emp_id, emp_details in sorted_records:
