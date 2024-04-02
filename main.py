@@ -1,23 +1,28 @@
 import json
 import os
 
+# Initializing dictionary to keep data from .json file while the program is running
 employee_records = {}
 
 data_file = 'info.json'
 
 
+# Function that loads data from .json file to the initialized dictionary
 def load_data():
+    # 'global' statement allows dictionary employees_record to be global variables
     global employee_records
     if os.path.exists(data_file):
         with open(data_file, 'r') as file:
             employee_records = json.load(file)
 
 
+# Saving data in .json file
 def save_data():
     with open(data_file, 'w') as file:
         json.dump(employee_records, file, indent=4)
 
 
+# Function to add an employee
 def add_employee():
     print('Enter employee details:')
     emp_id = input('Employee ID: ')
@@ -36,6 +41,7 @@ def add_employee():
     save_data()
 
 
+# Function to update existing data regarding chosen employee
 def update_employee():
     emp_id = input('Enter Employee ID to update: ')
     if emp_id in employee_records:
@@ -57,6 +63,7 @@ def update_employee():
         print('Employee not found!')
 
 
+# Function to delete an existing data regarding chosen employee
 def delete_employee():
     emp_id = input('Enter Employee ID to delete: ')
     if emp_id in employee_records:
@@ -67,6 +74,7 @@ def delete_employee():
         print('Employee not found!')
 
 
+# Function to search existing data of chosen employee with regard to a certain searching key: name, department, position
 def search_employee():
     search_key = input('Enter search key (name/department/position): ').lower()
     search_value = input('Enter search value: ').lower()
@@ -85,6 +93,7 @@ def search_employee():
         print('No matching employee found.')
 
 
+# Function to list each and every existing employee
 def list_employees():
     sorted_records = sorted(employee_records.items(), key=lambda x: x[1]['name'].split()[-1])
     for emp_id, emp_details in sorted_records:
@@ -96,6 +105,7 @@ def list_employees():
         print()
 
 
+# Main function to choose an action
 def main():
     load_data()
     try:
@@ -136,5 +146,6 @@ def main():
         print('Data saved.')
 
 
+# 'Ignition'
 if __name__ == '__main__':
     main()
